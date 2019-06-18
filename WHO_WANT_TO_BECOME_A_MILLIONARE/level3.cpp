@@ -14,11 +14,17 @@ Level3::Level3(QWidget *parent):
     sc = 0;
     td = 0;
     th = 1;
-    pressDX=true;
+    pressDX=false;
+
+
+}
+
+void Level3::setInfo(Attempt *attempt)
+{
+    this->attempt = attempt;
     ui->x2->setDisabled(!attempt->isDouble);
     ui->fiftyFifty->setDisabled(!attempt->isFifty);
     ui->friendHelp->setDisabled(!attempt->isFriendsHelp);
-
 }
 
 void Level3::on_x2_clicked(){
@@ -29,34 +35,34 @@ void Level3::on_x2_clicked(){
     }
 }
 
-void Level3::on_fiftyFirty_clicked(){
-    if(attempt->isFifty==false){
-        return;
-    }
+void Level3::on_fiftyFifty_clicked(){
+    if(attempt->isFifty==true){
+
 
     int a=2;
     if(ff==0 && a>0){
         a--;
-        ff=2;
+
         ui->first->setDisabled(true);
     }
     if(sc==0 && a>0){
         a--;
-        sc=2;
+
         ui->second->setDisabled(true);
     }
     if(td==0 && a>0){
         a--;
-        td=2;
+
         ui->third->setDisabled(true);
     }
     if(th==0 && a>0){
         a--;
-        th=2;
+
         ui->fourth->setDisabled(true);
     }
     ui->fiftyFifty->setDisabled(true);
     attempt->isFifty=false;
+}
 }
 
 void Level3::on_friendHelp_clicked(){
@@ -88,70 +94,163 @@ void Level3::on_friendHelp_clicked(){
     }
 }
 
+
+void Level3::check(){
+
+    ui->x2->setDisabled(!attempt->isDouble);
+    ui->fiftyFifty->setDisabled(!attempt->isFifty);
+    ui->friendHelp->setDisabled(!attempt->isFriendsHelp);
+}
+
 void Level3::on_first_clicked(){
-    if(ff<2){
+
         if(ff==1){
+
+
+            ui->first->setDisabled(false);
+            ui->second->setDisabled(false);
+            ui->third->setDisabled(false);
+            ui->fourth->setDisabled(false);
+
             emit right();
             this->close();
         }
         else if(pressDX==true){
 
             pressDX = false;
+            ui->first->setDisabled(true);
         }
         else{
+            attempt->isFriendsHelp = true;
+            attempt->isDouble = true;
+            attempt->isFifty = true;
+
+            ui->first->setDisabled(false);
+            ui->second->setDisabled(false);
+            ui->third->setDisabled(false);
+            ui->fourth->setDisabled(false);
+
+            ui->x2->setDisabled(!attempt->isDouble);
+            ui->fiftyFifty->setDisabled(!attempt->isFifty);
+            ui->friendHelp->setDisabled(!attempt->isFriendsHelp);
+
             emit fall();
             this->close();
         }
-    }
+
 }
 
 void Level3::on_second_clicked(){
-    if(sc<2){
+
         if(sc==1){
+
+
+            ui->first->setDisabled(false);
+            ui->second->setDisabled(false);
+            ui->third->setDisabled(false);
+            ui->fourth->setDisabled(false);
+
             emit right();
             this->close();
         }
         else if(pressDX==true){
 
             pressDX = false;
+            ui->second->setDisabled(true);
         }
         else{
+
+            attempt->isFriendsHelp = true;
+            attempt->isDouble = true;
+            attempt->isFifty = true;
+
+            ui->first->setDisabled(false);
+            ui->second->setDisabled(false);
+            ui->third->setDisabled(false);
+            ui->fourth->setDisabled(false);
+
+            ui->x2->setDisabled(!attempt->isDouble);
+            ui->fiftyFifty->setDisabled(!attempt->isFifty);
+            ui->friendHelp->setDisabled(!attempt->isFriendsHelp);
+
             emit fall();
             this->close();
         }
-    }
+
 }
 
 void Level3::on_third_clicked(){
-    if(td<2){
+
         if(td==1){
+
+
+            ui->first->setDisabled(false);
+            ui->second->setDisabled(false);
+            ui->third->setDisabled(false);
+            ui->fourth->setDisabled(false);
+
             emit right();
             this->close();
         }
         else if(pressDX==true){
 
             pressDX = false;
+            ui->third->setDisabled(true);
         }
         else{
+            attempt->isFriendsHelp = true;
+            attempt->isDouble = true;
+            attempt->isFifty = true;
+
+            ui->first->setDisabled(false);
+            ui->second->setDisabled(false);
+            ui->third->setDisabled(false);
+            ui->fourth->setDisabled(false);
+
+            ui->x2->setDisabled(!attempt->isDouble);
+            ui->fiftyFifty->setDisabled(!attempt->isFifty);
+            ui->friendHelp->setDisabled(!attempt->isFriendsHelp);
+
             emit fall();
             this->close();
         }
-    }
+
 }
 
 void Level3::on_fourth_clicked(){
-    if(th<2){
+
         if(th==1){
+
+
+            ui->first->setDisabled(false);
+            ui->second->setDisabled(false);
+            ui->third->setDisabled(false);
+            ui->fourth->setDisabled(false);
+
             emit right();
             this->close();
         }
         else if(pressDX==true){
 
             pressDX = false;
+            ui->fourth->setDisabled(true);
         }
         else{
+            attempt->isFriendsHelp = true;
+            attempt->isDouble = true;
+            attempt->isFifty = true;
+
+            ui->first->setDisabled(false);
+            ui->second->setDisabled(false);
+            ui->third->setDisabled(false);
+            ui->fourth->setDisabled(false);
+
+            ui->x2->setDisabled(!attempt->isDouble);
+            ui->fiftyFifty->setDisabled(!attempt->isFifty);
+            ui->friendHelp->setDisabled(!attempt->isFriendsHelp);
+
             emit fall();
             this->close();
         }
-    }
+
 }

@@ -21,10 +21,7 @@ public:
         return this->attempt;
     }
 
-    void setInfo(Attempt *attempt)
-    {
-        this->attempt = attempt;
-    }
+    void setInfo(Attempt *attempt);
 
 
 signals:
@@ -40,9 +37,13 @@ private slots:
     void on_second_clicked();
     void on_third_clicked();
     void on_fourth_clicked();
-    void on_fiftyFirty_clicked();
+    void on_fiftyFifty_clicked();
     void on_friendHelp_clicked();
     void on_x2_clicked();
+
+public slots:
+
+    void check();
 
 private:
     Ui::Level3  *ui;

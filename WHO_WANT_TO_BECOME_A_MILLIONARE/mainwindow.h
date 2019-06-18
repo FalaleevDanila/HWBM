@@ -22,15 +22,21 @@ public:
     ~MainWindow();
 public slots:
     void endGameLoser(){
+        attempt->isFifty=true;
+        attempt->isDouble=true;
+        attempt->isFriendsHelp=true;
 
         QMessageBox msgBox;
         msgBox.setWindowTitle("Уведомление");
 
         msgBox.setText("Вы проиграли!");
         msgBox.exec();
+
     }
     void endGameWinner(){
-
+        attempt->isFifty=true;
+        attempt->isDouble=true;
+        attempt->isFriendsHelp=true;
         QMessageBox msgBox;
         msgBox.setWindowTitle("Уведомление");
         msgBox.setText("Вы выграли!");

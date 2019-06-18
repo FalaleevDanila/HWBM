@@ -20,10 +20,7 @@ public:
         return this->attempt;
     }
 
-    void setInfo(Attempt *attempt)
-    {
-        this->attempt = attempt;
-    }
+    void setInfo(Attempt *attempt);
 
 
 signals:

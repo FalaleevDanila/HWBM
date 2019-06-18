@@ -18,11 +18,12 @@ MainWindow::MainWindow(Attempt *attempt, QWidget *parent) :
     levelSecond->setInfo(attempt);
     finalLevel->setInfo(attempt);
 
+    connect(levelStart,&Level1::right,levelSecond , &Level2::check);
     connect(levelStart,&Level1::right,levelSecond , &Level2::show);
     connect(levelStart,&Level1::fall, this , &MainWindow::show);
     connect(levelStart,&Level1::fall, this , &MainWindow::endGameLoser);
 
-
+    connect(levelSecond,&Level2::right,finalLevel , &Level3::check);
     connect(levelSecond,&Level2::right, finalLevel, &Level3::show);
     connect(levelSecond,&Level2::fall, this , &MainWindow::show);
     connect(levelSecond,&Level2::fall, this, &MainWindow::endGameLoser);
@@ -34,6 +35,8 @@ MainWindow::MainWindow(Attempt *attempt, QWidget *parent) :
 
     connect(finalLevel,&Level3::fall, this , &MainWindow::show);
     connect(finalLevel, &Level3::fall, this, &MainWindow::endGameLoser);
+
+
 }
 
 MainWindow::~MainWindow()
@@ -52,6 +55,11 @@ void MainWindow::on_pushButton_exit_clicked()
     }
 }
 void MainWindow::on_pushButton_play_clicked(){
+    attempt->isFifty=true;
+    attempt->isDouble=true;
+    attempt->isFriendsHelp=true;
+
+    levelStart->setInfo(attempt);
     levelStart->show();
     this->close();
 }
