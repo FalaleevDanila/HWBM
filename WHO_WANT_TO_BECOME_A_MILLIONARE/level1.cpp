@@ -96,7 +96,7 @@ void Level1::on_first_clicked(){
             this->close();
         }
         else if(pressDX==true){
-            attempt->isDouble = false;
+
             pressDX = false;
         }
         else{
@@ -114,7 +114,7 @@ void Level1::on_second_clicked(){
             this->close();
         }
         else if(pressDX==true){
-            attempt->isDouble = false;
+
             pressDX = false;
         }
         else{
@@ -131,7 +131,7 @@ void Level1::on_third_clicked(){
             this->close();
         }
         else if(pressDX==true){
-            attempt->isDouble = false;
+
             pressDX = false;
         }
         else{
@@ -148,7 +148,7 @@ void Level1::on_fourth_clicked(){
             this->close();
         }
         else if(pressDX==true){
-            attempt->isDouble = false;
+
             pressDX = false;
         }
         else{

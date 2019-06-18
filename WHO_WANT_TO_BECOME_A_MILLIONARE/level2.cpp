@@ -24,6 +24,8 @@ Level2::Level2(QWidget *parent):
 void Level2::on_x2_clicked(){
     if(attempt->isDouble==true){
         pressDX=true;
+        ui->x2->setDisabled(true);
+        attempt->isDouble=false;
     }
 }
 

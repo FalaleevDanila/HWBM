@@ -18,12 +18,12 @@ MainWindow::MainWindow(Attempt *attempt, QWidget *parent) :
     levelSecond->setInfo(attempt);
     finalLevel->setInfo(attempt);
 
-    connect(levelStart,&Level1::right,levelSecond , &Level1::show);
+    connect(levelStart,&Level1::right,levelSecond , &Level2::show);
     connect(levelStart,&Level1::fall, this , &MainWindow::show);
     connect(levelStart,&Level1::fall, this , &MainWindow::endGameLoser);
 
 
-    connect(levelSecond,&Level2::right, finalLevel, &Level1::show);
+    connect(levelSecond,&Level2::right, finalLevel, &Level3::show);
     connect(levelSecond,&Level2::fall, this , &MainWindow::show);
     connect(levelSecond,&Level2::fall, this, &MainWindow::endGameLoser);
 

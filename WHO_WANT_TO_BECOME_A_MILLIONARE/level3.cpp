@@ -24,6 +24,8 @@ Level3::Level3(QWidget *parent):
 void Level3::on_x2_clicked(){
     if(attempt->isDouble==true){
         pressDX=true;
+        ui->x2->setDisabled(true);
+        attempt->isDouble=false;
     }
 }
 
@@ -93,7 +95,7 @@ void Level3::on_first_clicked(){
             this->close();
         }
         else if(pressDX==true){
-            attempt->isDouble = false;
+
             pressDX = false;
         }
         else{
@@ -110,7 +112,7 @@ void Level3::on_second_clicked(){
             this->close();
         }
         else if(pressDX==true){
-            attempt->isDouble = false;
+
             pressDX = false;
         }
         else{
@@ -127,7 +129,7 @@ void Level3::on_third_clicked(){
             this->close();
         }
         else if(pressDX==true){
-            attempt->isDouble = false;
+
             pressDX = false;
         }
         else{
@@ -144,7 +146,7 @@ void Level3::on_fourth_clicked(){
             this->close();
         }
         else if(pressDX==true){
-            attempt->isDouble = false;
+
             pressDX = false;
         }
         else{
